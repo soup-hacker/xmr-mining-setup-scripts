@@ -1,2 +1,2 @@
-# xmr-mining-setup-scripts
-This repo contains scripts to get started mining xmr. I am not a serious crypto miner, I just wanted to learn how the process works. 
+# XMR Mining Set Up Scripts 
+I decided to learn how to mine XMR just to learn a little more about Cryto. These scripts all assume that you have a Mullvad VPN account, just because that is how I did it, you can rip those parts out very easily. `xmr-basic-setup.sh` is for CPU mining only. It clones and compiles the xmrig repo, and install the Mullvad CLI client. `xmr-cuda-miner.sh` does everything that `xmr-basic-setup.sh` does, in addition to downloading and compiling the cuda plugin for XMRig. Each script will also tell the command needed in order to start mining. It does not start mining for you, only downloads and sets up all the requirements.
