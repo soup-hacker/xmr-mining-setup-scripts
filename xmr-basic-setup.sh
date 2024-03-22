@@ -1,26 +1,28 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-read -p "Enter Mullvad account number: " mullvad_account
+read -p "Enter Mullvad account number (leave black to ignore): " mullvad_account
 
 read -p "Enter XMR wallet address: " xmr_address
 
-
 # SETTING UP THE VPN
-sudo curl -fsSLo /usr/share/keyrings/mullvad-keyring.asc https://repository.mullvad.net/deb/mullvad-keyring.asc
+if[$mullvad_account!=$null]; then
+    sudo curl -fsSLo /usr/share/keyrings/mullvad-keyring.asc https://repository.mullvad.net/deb/mullvad-keyring.asc
 
-echo "deb [signed-by=/usr/share/keyrings/mullvad-keyring.asc arch=$( dpkg --print-architecture )] https://repository.mullvad.net/deb/stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/mullvad.list
+    echo "deb [signed-by=/usr/share/keyrings/mullvad-keyring.asc arch=$( dpkg --print-architecture )] https://repository.mullvad.net/deb/stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/mullvad.list
 
-sudo apt update
+    sudo apt update
 
-sudo apt install mullvad-vpn -y
+    sudo apt install mullvad-vpn -y
 
-mullvad account login $mullvad_account
+    mullvad account login $mullvad_account
 
-mullvad relay set location us
+    mullvad relay set location us
 
-mullvad lan set allow
+    mullvad lan set allow
 
-mullvad connect
+    mullvad connect
+fi
+
 
 # SETTING UP THE MINER
 
