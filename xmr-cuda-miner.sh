@@ -50,6 +50,6 @@ cmake .. -DCUDA_LIB=/usr/local/cuda/lib64/stubs/libcuda.so -DCUDA_TOOLKIT_ROOT_D
 
 make -j$(nproc)
 
-echo -e "\nEverything is set up, please run the following command to start mining:\n\n${HOME}/xmrig/build/xmrig --cpu-affinity 0xFF --randomx-1gb-pages -o gulf.moneroocean.stream:10128 -u $xmr_address --cuda --cuda-loader=${HOME}/xmrig-cuda/build/xmrig/build/libxmrig-cuda.so"
+echo -e "\nEverything is set up, please run the following command to start mining:\n\n${HOME}/xmrig/build/xmrig --cpu-affinity 0xFF --randomx-1gb-pages -o gulf.moneroocean.stream:10128 -u $xmr_address --cuda --cuda-loader=${HOME}/xmrig-cuda/build/libxmrig-cuda.so"
 
 # ${HOME}/xmrig/build/xmrig --cpu-affinity 0xFF --randomx-1gb-pages -o gulf.moneroocean.stream:10128 -u $xmr_address --cuda --cuda-loader=${HOME}/xmrig-cuda/build/xmrig/build/libxmrig-cuda.so
